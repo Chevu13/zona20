@@ -3,5 +3,5 @@ export const navLinks = [
   { href: "#meni", label: "Meni" },
   { href: "#o-nama", label: "O nama" },
   { href: "#galerija", label: "Galerija" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "#lokacije", label: "Lokacije" },
 ];

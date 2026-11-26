@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { business } from "@/data/business";
 import { img } from "@/lib/images";
 import { Button, Reveal, ease } from "./ui";
-import { h2, section, wrap } from "./styles";
+import { accent, h2, section, wrap } from "./styles";
 
 // Šest kadrova, svaki za drugi deo Mammite; "area" određuje mesto u editorijalnoj mreži (globals.css).
 const photos = [
@@ -54,7 +54,7 @@ export function Gallery() {
       <div className={wrap}>
         <Reveal className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
           <h2 id="galerija-naslov" className={h2}>
-            Trenuci iz <span className="font-serif normal-case italic text-tomato">Zone</span>
+            Trenuci iz <span className={accent}>Zone</span>
           </h2>
           <Button variant="link" href={business.instagram.url}>
             {business.instagram.handle}

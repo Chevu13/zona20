@@ -2,7 +2,7 @@ import Image from "next/image";
 import { signatureItems } from "@/data/menu";
 import { img } from "@/lib/images";
 import { Button, Reveal } from "./ui";
-import { h2, wrap } from "./styles";
+import { accent, h2, wrap } from "./styles";
 
 export function Signature() {
   return (
@@ -10,27 +10,27 @@ export function Signature() {
       <div className={wrap}>
         <Reveal className="mb-10 md:mb-14">
           <h2 id="potpisi-naslov" className={h2}>
-            Premium <span className="font-serif normal-case italic text-tomato">pizze</span>
+            Premium <span className={accent}>pizze</span>
           </h2>
         </Reveal>
 
         {/* Telefon: horizontalni niz koji se prevlači; desktop: tri kolone */}
         <ul className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 lg:gap-10">
           {signatureItems.map((item, i) => (
-            <li key={item.id} className="w-[78%] shrink-0 snap-start md:w-auto">
+            <li key={item.id} className="w-[72%] shrink-0 snap-start md:w-auto">
               <Reveal delay={i * 0.08}>
-                <div className="group relative aspect-[4/3] overflow-hidden bg-ink">
+                <div className="group relative aspect-[4/5] overflow-hidden bg-ink">
                   <Image
                     src={img[item.image!]}
                     alt={`Pizza ${item.name}`}
                     fill
                     placeholder="blur"
-                    sizes="(min-width: 768px) 33vw, 78vw"
+                    sizes="(min-width: 768px) 33vw, 72vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                 </div>
-                <h3 className="mt-5 font-display text-[1.9rem] uppercase leading-none">{item.name}</h3>
-                <p className="mt-2 max-w-xs text-[1.05rem] leading-relaxed text-ink-soft">{item.ingredients}</p>
+                <h3 className="mt-6 font-display text-[1.75rem] font-medium leading-tight">{item.name}</h3>
+                <p className="mt-2 max-w-sm text-[1.02rem] leading-relaxed text-ink-soft">{item.ingredients}</p>
               </Reveal>
             </li>
           ))}

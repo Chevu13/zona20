@@ -27,6 +27,9 @@ import p_slatka_pizza from "@/assets/images/meni/slatka-pizza.jpg";
 import p_specolina from "@/assets/images/meni/specolina.jpg";
 import p_tartufata from "@/assets/images/meni/tartufata.jpg";
 import p_tonno from "@/assets/images/meni/tonno.jpg";
+import p_pancetta_kajgana from "@/assets/images/meni/pancetta-kajgana.jpg";
+import p_ovsena_kasa from "@/assets/images/meni/ovsena-kasa.jpg";
+import p_palacinke from "@/assets/images/meni/palacinke.jpg";
 
 export const menuPhotos: Record<string, typeof p_margherita> = {
   "margherita": p_margherita,
@@ -57,4 +60,7 @@ export const menuPhotos: Record<string, typeof p_margherita> = {
   "specolina": p_specolina,
   "tartufata": p_tartufata,
   "tonno": p_tonno,
+  "pancetta-kajgana": p_pancetta_kajgana,
+  "ovsena-kasa": p_ovsena_kasa,
+  "palacinke": p_palacinke,
 };

@@ -21,19 +21,20 @@ export function Reveal({ children, delay = 0, className, ...rest }: HTMLMotionPr
   );
 }
 
-type BtnProps = { children: ReactNode; variant?: "solid" | "ghost" | "link"; className?: string; href: string };
+type BtnProps = { children: ReactNode; variant?: "solid" | "ghost" | "link" | "wolt"; className?: string; href: string };
 
 export function Button({ children, variant = "solid", className = "", href }: BtnProps) {
   const styles = {
-    solid: "min-h-12 px-7 bg-tomato text-paper hover:bg-ink",
-    ghost: "min-h-12 px-7 border border-current hover:border-tomato hover:text-tomato",
-    link: "border-b border-current py-2 hover:text-tomato",
+    solid: "min-h-12 rounded-full px-7 bg-basil text-paper hover:bg-ink",
+    ghost: "min-h-12 rounded-full px-7 border border-current hover:bg-ink hover:border-ink hover:text-paper",
+    link: "border-b border-current py-2 hover:opacity-65",
+    wolt: "min-h-12 rounded-full px-7 bg-tomato text-paper hover:bg-ink",
   }[variant];
   const external = href.startsWith("http");
   return (
     <a
       href={href}
-      className={`group inline-flex items-center justify-center gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.18em] transition-colors duration-300 ${styles} ${className}`}
+      className={`group inline-flex items-center justify-center gap-3 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${styles} ${className}`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}

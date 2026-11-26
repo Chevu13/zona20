@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Instrument_Serif, Hanken_Grotesk } from "next/font/google";
+import { Playfair_Display, Montserrat, Hanken_Grotesk } from "next/font/google";
 import { business, main } from "@/data/business";
 import { img } from "@/lib/images";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 
-const anton = Anton({ weight: "400", subsets: ["latin", "latin-ext"], variable: "--font-anton", display: "swap" });
-const instrument = Instrument_Serif({ weight: "400", style: ["normal", "italic"], subsets: ["latin", "latin-ext"], variable: "--font-instrument", display: "swap" });
+// Serif kao "MENI" na njihovom štampanom jelovniku, geometrijski sans kao logo.
+const playfair = Playfair_Display({ weight: ["400", "500", "600"], style: ["normal", "italic"], subsets: ["latin", "latin-ext"], variable: "--font-playfair", display: "swap" });
+const montserrat = Montserrat({ weight: ["500", "600", "700"], subsets: ["latin", "latin-ext"], variable: "--font-montserrat", display: "swap" });
 const hanken = Hanken_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--font-hanken", display: "swap" });
 
 const title = "Zona 20 Pizzeria e Osteria — Napuljska pizza | Beograd";
@@ -53,7 +54,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sr-Latn" className={`${anton.variable} ${instrument.variable} ${hanken.variable}`}>
+    <html lang="sr-Latn" className={`${playfair.variable} ${montserrat.variable} ${hanken.variable}`}>
       <body className="grain">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Providers>{children}</Providers>

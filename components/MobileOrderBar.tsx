@@ -2,10 +2,10 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { wolt } from "./Nav";
+import { reserve, wolt } from "./Nav";
 import { ease } from "./ui";
 
-/** Lepljivo dugme za Wolt na mobilnom, pojavljuje se posle hero sekcije. */
+/** Lepljiva traka na telefonu: rezervacija i Wolt na dohvat palca, posle hero sekcije. */
 export function MobileOrderBar() {
   const [visible, setVisible] = useState(false);
 
@@ -16,6 +16,7 @@ export function MobileOrderBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const btn = "flex min-h-13 items-center justify-center rounded-full py-3.5 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em]";
   return (
     <AnimatePresence>
       {visible && (
@@ -24,11 +25,13 @@ export function MobileOrderBar() {
           animate={{ y: 0 }}
           exit={{ y: "110%" }}
           transition={{ duration: 0.5, ease }}
-          className="fixed inset-x-0 bottom-0 z-40 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
         >
-          <a {...wolt} className="flex min-h-14 w-full items-center justify-between bg-tomato px-5 text-paper shadow-[0_12px_40px_rgba(23,19,16,.35)]">
-            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.18em]">Naruči na Wolt-u</span>
-            <span aria-hidden className="font-display text-lg">↗</span>
+          <a {...reserve} className={`${btn} bg-basil text-paper shadow-[0_10px_30px_rgba(21,21,21,.3)]`}>
+            Rezerviši sto
+          </a>
+          <a {...wolt} className={`${btn} bg-tomato text-paper shadow-[0_10px_30px_rgba(21,21,21,.3)]`}>
+            Wolt ↗
           </a>
         </motion.div>
       )}

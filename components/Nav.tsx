@@ -8,6 +8,7 @@ import { Logo } from "./Logo";
 import { ease } from "./ui";
 
 export const wolt = { href: business.wolt.url, target: "_blank", rel: "noopener noreferrer" } as const;
+export const reserve = { href: business.reservations, target: "_blank", rel: "noopener noreferrer" } as const;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +42,7 @@ export function Nav() {
           <ul className="hidden items-center gap-9 lg:flex">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="group relative text-[0.78rem] font-semibold uppercase tracking-[0.2em]">
+                <a href={l.href} className="group relative font-label text-[0.74rem] font-semibold uppercase tracking-[0.18em]">
                   {l.label}
                   <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-tomato transition-transform duration-500 group-hover:scale-x-100" />
                 </a>
@@ -50,9 +51,12 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center gap-2 md:gap-4">
+            <a {...reserve} className="hidden border-b border-current pb-0.5 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em] transition-colors hover:text-tomato md:inline-block">
+              Rezerviši sto
+            </a>
             <a
               {...wolt}
-              className="hidden min-h-11 items-center bg-tomato px-6 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-ink sm:inline-flex"
+              className="hidden min-h-11 items-center rounded-full bg-tomato px-6 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:bg-ink sm:inline-flex"
             >
               Naruči na Wolt-u
             </a>
@@ -92,18 +96,22 @@ export function Nav() {
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.8, ease, delay: 0.15 + i * 0.06 }}
-                    className="flex items-baseline gap-4 py-1 font-display text-[3.4rem] uppercase leading-[1.05]"
+                    className="flex items-baseline gap-4 py-1.5 font-display text-[2.6rem] leading-[1.1]"
                   >
-                    <span className="font-sans text-xs tracking-widest text-crust">0{i + 1}</span>
-                    {l.label}
+                                        {l.label}
                   </motion.a>
                 </li>
               ))}
             </ul>
             <div className="space-y-5">
-              <a {...wolt} className="flex min-h-14 w-full items-center justify-center bg-tomato text-sm font-semibold uppercase tracking-[0.2em]">
-                Naruči na Wolt-u ↗
-              </a>
+              <div className="grid grid-cols-2 gap-3">
+                <a {...reserve} className="flex min-h-13 items-center justify-center rounded-full border border-paper/40 py-3.5 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em]">
+                  Rezerviši sto
+                </a>
+                <a {...wolt} className="flex min-h-13 items-center justify-center rounded-full bg-tomato py-3.5 font-label text-[0.74rem] font-semibold uppercase tracking-[0.16em]">
+                  Wolt ↗
+                </a>
+              </div>
               <div className="flex justify-between text-sm text-paper/70">
                 <a href={main.phone.href}>{main.phone.display}</a>
                 <a href={business.instagram.url} target="_blank" rel="noopener noreferrer">

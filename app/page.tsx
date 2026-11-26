@@ -1,5 +1,5 @@
 import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
+import { Locations } from "@/components/Locations";
 import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
@@ -21,7 +21,7 @@ export default function Home() {
         <Menu />
         <About />
         <Gallery />
-        <Contact />
+        <Locations />
       </main>
       <Footer />
       <MobileOrderBar />
